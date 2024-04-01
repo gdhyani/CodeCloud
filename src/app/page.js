@@ -6,7 +6,7 @@ import {
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { ArrowUpFromLine, ArrowDownFromLine } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
@@ -25,8 +25,8 @@ export default function Home() {
                 direction="vertical"
                 className=" rounded-lg border"
             >
-                <ResizablePanel defaultSize={75}>
-                    <div className="flex flex-col gap-3 text-center min-h-full items-center justify-center">
+                <ResizablePanel className="" defaultSize={75}>
+                    <div className="flex flex-col gap-3 text-center h-full overflow-y-auto items-center justify-center">
                         <h1 className="text-4xl">
                             Welcome to{" "}
                             <span className="font-bold">CodeCloud🔥</span>
@@ -38,7 +38,7 @@ export default function Home() {
                 </ResizablePanel>
                 <ResizableHandle />
                 <ResizablePanel defaultSize={5} minSize={5} maxSize={60}>
-                    <div className="flex px-4">
+                    <div className="flex px-0">
                         <Tabs defaultValue="account" className="w-[400px]">
                             <TabsList className="bg-transparent">
                                 <TabsTrigger
@@ -51,10 +51,10 @@ export default function Home() {
                             </TabsList>
                             <hr className="w-screen -ml-10" />
                             <TabsContent value="console">
-                                Make changes to your account here.
+                                Console.log your data.
                             </TabsContent>
                             <TabsContent value="github">
-                                Change your password here.
+                                GitHub Logs Here.
                             </TabsContent>
                         </Tabs>
                     </div>

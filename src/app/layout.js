@@ -21,15 +21,18 @@ export default function RootLayout({ children }) {
                     direction="horizontal"
                     className=" w-full rounded-lg border-t"
                 >
-                    <ResizablePanel defaultSize={4} minSize={4} maxSize={25}>
+                    <ResizablePanel defaultSize={20} minSize={4} maxSize={25}>
+                        {/* Sidebar */}
                         <Sidebar />
                     </ResizablePanel>
                     <ResizableHandle />
                     <ResizablePanel defaultSize={75}>
+                        {/* Main Center Code Editor */}
                         <div className="h-full">{children}</div>
                     </ResizablePanel>
                     <ResizableHandle />
                     <ResizablePanel defaultSize={10}>
+                        {/* Log Area Right most */}
                         <div className="flex h-full items-center justify-center p-6">
                             <h1>Logs</h1>
                         </div>
