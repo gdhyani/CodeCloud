@@ -1,5 +1,6 @@
 "use client";
 import { FilePlus, FolderPlus, RotateCcw, FileCode } from "lucide-react";
+import { Router, useRouter } from "next/navigation";
 import { useState } from "react";
 
 // on pressing add file handlefile function trigger which open input using form state by making it true
@@ -8,6 +9,7 @@ import { useState } from "react";
 // blank space so that it can start blank on next file creation.
 
 export default function Sidebar_Exp() {
+    const router = useRouter();
     const [directory, setDirectory] = useState(["File1", "File2"]);
     // display form after pressing create file and folder button.
     const [form, setform] = useState(false);
@@ -77,13 +79,17 @@ export default function Sidebar_Exp() {
                         ""
                     )}
                     {directory.map((ele) => (
-                        <div
+                        <button
                             className="flex flex-row gap-2 items-center py-1"
                             key={directory.indexOf(ele)}
+                            name={ele}
+                            onClick={(evt) => {
+                                router.push(`/page/${ele}`);
+                            }}
                         >
                             <FileCode onClick={handleAddFile} size={18} />
                             <h1 className="">{ele}</h1>
-                        </div>
+                        </button>
                     ))}
                 </div>
             </div>
