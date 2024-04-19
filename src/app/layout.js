@@ -34,12 +34,12 @@ export default function RootLayout({ children }) {
                         <div className="h-full">{children}</div>
                     </ResizablePanel>
                     <ResizableHandle />
-                    <ResizablePanel defaultSize={5}>
-                        {/* Log Area Right most */}
+                    {/* <ResizablePanel defaultSize={5}>
+                        Log Area Right most 
                         <div className="flex h-full items-center justify-center p-6">
                             <h1>Logs</h1>
                         </div>
-                    </ResizablePanel>
+                    </ResizablePanel> */}
                 </ResizablePanelGroup>
             </body>
         </html>
