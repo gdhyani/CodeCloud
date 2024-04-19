@@ -64,9 +64,9 @@ export default function Sidebar() {
                 />
                 <Settings className="cursor-pointer mt-auto" size={30} />
             </div>
-            <div className="w-full text-sm h-full flex flex-col">
+            {/* <div className="w-full text-sm h-full flex flex-col">
                 <Sidebar_Exp open_name={open} />
-            </div>
+            </div> */}
         </div>
     );
 }

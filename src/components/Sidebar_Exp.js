@@ -101,5 +101,11 @@ export default function Sidebar_Exp(props) {
                 </div>
             </div>
         );
+    } else {
+        return (
+            <div>
+                <h1>{openTab}</h1>
+            </div>
+        );
     }
 }

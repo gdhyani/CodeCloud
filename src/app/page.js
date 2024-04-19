@@ -10,22 +10,18 @@ import { useEffect, useState, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
-    const [console, setconsole] = useState(false);
-    // useEffect(() => {
-    //   first
+    // const [console, setconsole] = useState(false);
 
-    //   return () => {
-    //     second
-    //   }
-    // }, [console])
-
+    function handleTabChange() {
+        alert("change");
+    }
     return (
         <main className="h-full">
             <ResizablePanelGroup
                 direction="vertical"
                 className=" rounded-lg border"
             >
-                <ResizablePanel className="" defaultSize={75}>
+                <ResizablePanel className="" defaultSize={75} maxSize={93}>
                     <div className="flex flex-col gap-3 text-center h-full overflow-y-auto items-center justify-center">
                         <h1 className="text-4xl">
                             Welcome to{" "}
@@ -37,9 +33,18 @@ export default function Home() {
                     </div>
                 </ResizablePanel>
                 <ResizableHandle />
-                <ResizablePanel defaultSize={5} minSize={5} maxSize={60}>
+                <ResizablePanel
+                    collapsible
+                    defaultSize={25}
+                    minSize={5.2}
+                    maxSize={60}
+                >
                     <div className="flex px-0">
-                        <Tabs defaultValue="account" className="w-[400px]">
+                        <Tabs
+                            onValueChange={handleTabChange}
+                            defaultValue="account"
+                            className="w-[400px]"
+                        >
                             <TabsList className="bg-transparent">
                                 <TabsTrigger
                                     className="bg-transparent"

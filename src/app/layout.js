@@ -6,6 +6,7 @@ import {
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import NavBar from "@/components/NavBar";
+import Sidebar_Exp from "@/components/Sidebar_Exp";
 
 export const metadata = {
     title: "Create Next App",
@@ -21,9 +22,11 @@ export default function RootLayout({ children }) {
                     direction="horizontal"
                     className=" w-full rounded-lg border-t"
                 >
-                    <ResizablePanel defaultSize={20} minSize={4.8} maxSize={25}>
-                        {/* Sidebar */}
-                        <Sidebar />
+                    {/* Fixed Sidebar */}
+                    <Sidebar />
+                    <ResizablePanel defaultSize={0} minSize={0} maxSize={25}>
+                        {/* Sidebar Expanded*/}
+                        <Sidebar_Exp />
                     </ResizablePanel>
                     <ResizableHandle />
                     <ResizablePanel defaultSize={75}>
@@ -31,7 +34,7 @@ export default function RootLayout({ children }) {
                         <div className="h-full">{children}</div>
                     </ResizablePanel>
                     <ResizableHandle />
-                    <ResizablePanel defaultSize={10}>
+                    <ResizablePanel defaultSize={5}>
                         {/* Log Area Right most */}
                         <div className="flex h-full items-center justify-center p-6">
                             <h1>Logs</h1>
