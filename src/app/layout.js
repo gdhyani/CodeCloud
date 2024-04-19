@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
                     direction="horizontal"
                     className=" w-full rounded-lg border-t"
                 >
-                    <ResizablePanel defaultSize={20} minSize={4} maxSize={25}>
+                    <ResizablePanel defaultSize={20} minSize={4.8} maxSize={25}>
                         {/* Sidebar */}
                         <Sidebar />
                     </ResizablePanel>
