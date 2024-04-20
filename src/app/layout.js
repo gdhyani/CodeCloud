@@ -24,8 +24,8 @@ export default function RootLayout({ children }) {
                 >
                     {/* Fixed Sidebar */}
                     <Sidebar />
-                    <ResizablePanel defaultSize={0} minSize={0} maxSize={25}>
-                        {/* Sidebar Expanded*/}
+                    <ResizablePanel defaultSize={10} minSize={0} maxSize={25}>
+                        {/*  Sidebar Expanded */}
                         <Sidebar_Exp />
                     </ResizablePanel>
                     <ResizableHandle />
