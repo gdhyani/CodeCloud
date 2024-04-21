@@ -189,8 +189,9 @@ export default function Sidebar_Exp(props) {
         );
     } else {
         return (
-            <div>
-                <h1>{openTab}</h1>
+            <div className="flex px-2 text-center flex-col gap-2 justify-center items-center h-screen">
+                <h1 className="text-lg">{openTab.toUpperCase()} Comming Soon!</h1>
+                <h1 className="text-muted-foreground">Stay tuned for the upcoming updates.</h1>
             </div>
         );
     }

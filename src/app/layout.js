@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
                     <Sidebar />
                     <ResizablePanel defaultSize={10} minSize={0} maxSize={25}>
                         {/*  Sidebar Expanded */}
-                        <Sidebar_Exp open_name="ai"/>
+                        <Sidebar_Exp open_name="github"/>
                     </ResizablePanel>
                     <ResizableHandle />
                     <ResizablePanel defaultSize={75}>
