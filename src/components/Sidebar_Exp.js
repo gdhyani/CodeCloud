@@ -2,6 +2,15 @@
 import { FilePlus, FolderPlus, RotateCcw, FileCode } from "lucide-react";
 import { Router, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 // on pressing add file handlefile function trigger which open input using form state by making it true
 // the form value will store in filename. When pressed enter onSubmit will trigger and make form
@@ -9,18 +18,22 @@ import { useState, useEffect } from "react";
 // blank space so that it can start blank on next file creation.
 
 export default function Sidebar_Exp(props) {
-    console.log(props);
+    // console.log(props);
+
+    //check which tab is open
     const [openTab, setopenTab] = useState(props.open_name);
     useEffect(() => {
         setopenTab(props.open_name);
     }, [props.open_name]);
-    const router = useRouter();
+
+    //temp directory
     const [directory, setDirectory] = useState(["File1", "File2"]);
+
+    // Explorer Functions and States
     // display form after pressing create file and folder button.
     const [form, setform] = useState(false);
     // file name for from to store file name value.
     const [filename, setFilename] = useState("");
-
     function handleAddFile() {
         // create files
         setform(true);
@@ -35,6 +48,14 @@ export default function Sidebar_Exp(props) {
         // refresh the folder structure
         alert("Add File");
     }
+    //end
+    //Ai Function and States
+    const [model, setModel] = useState({
+        Ai_name: "",
+        set: false,
+    });
+
+    //Conditional Statement based on which render perticular component on sidebar expanded.
     if (openTab == "explorer") {
         return (
             <div className="">
@@ -99,6 +120,71 @@ export default function Sidebar_Exp(props) {
                         ))}
                     </div>
                 </div>
+            </div>
+        );
+    }
+    if (openTab == "ai") {
+        return (
+            <div className="px-1">
+                <div className="flex flex-row border-b justify-between">
+                    <h1 className=" px-1 font-semibold text-muted-foreground ">
+                        Ai Model
+                    </h1>
+                </div>
+                {model.set ? (
+                    <h1>Model Selected</h1>
+                ) : (
+                    <div className="h-screen px-2 flex-col gap-3 -mt-10 items-center justify-center flex">
+                        <h1 className="text-xl font-bold mb-4">
+                            Select Your AI Model 
+                        </h1>
+                        <Select
+                            onValueChange={(value) => {
+                                setModel({ ...model, Ai_name: value });
+                            }}
+                        >
+                            <SelectTrigger className="w-min">
+                                <SelectValue placeholder="Select an AI" />
+                            </SelectTrigger>
+                            <SelectContent className="dark:bg-black">
+                                <SelectGroup>
+                                    <SelectLabel>AI Model</SelectLabel>
+                                    <SelectItem value="chatgpt">
+                                        ChatGPT
+                                    </SelectItem>
+                                    <SelectItem value="openai">
+                                        Open Ai Codex
+                                    </SelectItem>
+                                    <SelectItem value="codey">
+                                        Google Codey
+                                    </SelectItem>
+                                    <SelectItem value="intellicode">
+                                        Intellicode
+                                    </SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                        <h1 className="text-muted-foreground  text-center text-sm">
+                            You need to enter your own api key inorder to use{" "}
+                            {model.Ai_name ? (
+                                <span className="text-white text-xs px-1 border rounded border-white">
+                                    {model.Ai_name.toUpperCase()}
+                                </span>
+                            ) : (
+                                ""
+                            )}{" "}
+                            AI funcitonalities.
+                        </h1>
+                        <button
+                            onClick={() => {
+                                setModel({ ...model, set: 1 });
+                            }}
+                            className="bg-white text-md text-black rounded-md px-4 py-1 mt-3"
+                        >
+                            Lets Go!
+                        </button>
+                    </div>
+                )}
             </div>
         );
     } else {

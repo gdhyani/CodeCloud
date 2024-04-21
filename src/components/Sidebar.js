@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 import Sidebar_Exp from "./Sidebar_Exp";
 
-export default function Sidebar() {
+export default function Sidebar_Ico() {
     const [open, setopen] = useState("");
     function handleOpenTab(evt) {
         // on click handle open and close of perticular tab
