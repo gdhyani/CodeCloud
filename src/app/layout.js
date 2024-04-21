@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/resizable";
 import NavBar from "@/components/NavBar";
 import Sidebar_Exp from "@/components/Sidebar_Exp";
+import { useState } from "react";
+
 
 // export const metadata = {
 //     title: "Create Next App",
@@ -15,6 +17,7 @@ import Sidebar_Exp from "@/components/Sidebar_Exp";
 // };
 
 export default function RootLayout({ children }) {
+    const [sidebar_Exp, setSidebar] = useState("")
     return (
         <html lang="en">
             <body className="dark flex flex-col h-screen transition-all">
@@ -24,10 +27,10 @@ export default function RootLayout({ children }) {
                     className=" w-full rounded-lg border-t"
                 >
                     {/* Fixed Sidebar */}
-                    <Sidebar />
+                    <Sidebar onchange={setSidebar}/>
                     <ResizablePanel defaultSize={10} minSize={0} maxSize={25}>
                         {/*  Sidebar Expanded */}
-                        <Sidebar_Exp open_name="github"/>
+                        <Sidebar_Exp open_name={sidebar_Exp}/>
                     </ResizablePanel>
                     <ResizableHandle />
                     <ResizablePanel defaultSize={75}>

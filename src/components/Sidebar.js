@@ -10,59 +10,79 @@ import {
     Settings,
 } from "lucide-react";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar_Exp from "./Sidebar_Exp";
 
-export default function Sidebar_Ico() {
+export default function Sidebar({ onchange }) {
     const [open, setopen] = useState("");
-    function handleOpenTab(evt) {
+    function handleOpenTab(name) {
         // on click handle open and close of perticular tab
-        if (evt.target.getAttribute("name") == open) {
-            setopen("");
-        } else {
-            setopen(evt.target.getAttribute("name"));
-        }
+        setopen(prevOpen=>prevOpen==name?"":name)
+        console.log(name)
     }
+    useEffect(() => {
+        onchange(open);
+    }, [open]);
+
     return (
         <div className="flex flex-row h-full">
             <div className="px-5 border w-min h-full flex gap-5 flex-col py-4">
-                <Folders
-                    className="cursor-pointer"
-                    size={30}
-                    absoluteStrokeWidth
-                    name="explorer"
-                    onClick={(evt) => {
-                        handleOpenTab(evt);
+                <button
+                    onClick={() => {
+                        handleOpenTab("explorer");
                     }}
-                />
-                <GitCompareArrows
-                    className="cursor-pointer"
-                    size={30}
-                    name="github"
-                    absoluteStrokeWidth
-                    onClick={(evt) => {
-                        handleOpenTab(evt);
+                >
+                    <Folders
+                        className="cursor-pointer"
+                        size={30}
+                        absoluteStrokeWidth
+                    />
+                </button>
+                <button
+                    onClick={() => {
+                        handleOpenTab("github");
                     }}
-                />
-                <BotMessageSquare
-                    className="cursor-pointer"
-                    size={30}
+                >
+                    <GitCompareArrows
+                        className="cursor-pointer"
+                        size={30}
+                        absoluteStrokeWidth
+                    />
+                </button>
+
+                <button
+                    onClick={() => {
+                        handleOpenTab("ai");
+                    }}
+                >
+                    <BotMessageSquare
+                        className="cursor-pointer"
+                        size={30}
+                        absoluteStrokeWidth
+                    />
+                </button>
+
+                <button
+                    onClick={(evt) => {
+                        handleOpenTab("message");
+                    }}
                     name="message"
-                    onClick={(evt) => {
-                        handleOpenTab(evt);
+                >
+                    <MessageCircleCode
+                        className="cursor-pointer"
+                        size={30}
+                        name="message"
+                        absoluteStrokeWidth
+                    />
+                </button>
+                <button
+                    onClick={() => {
+                        alert("Settings Not Enabled as of Now");
                     }}
-                    absoluteStrokeWidth
-                />
-                <MessageCircleCode
-                    className="cursor-pointer"
-                    size={30}
-                    name="ai"
-                    onClick={(evt) => {
-                        handleOpenTab(evt);
-                    }}
-                    absoluteStrokeWidth
-                />
-                <Settings className="cursor-pointer mt-auto" size={30} />
+                    className="mt-auto"
+                >
+                    <Settings className="" size={30} />
+                </button>
             </div>
             {/* <div className="w-full text-sm h-full flex flex-col">
                 <Sidebar_Exp open_name={open} />
