@@ -13,7 +13,7 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar";
-import { SquareDashedBottomCode, Earth } from "lucide-react";
+import { SquareDashedBottomCode, Earth, Origami, CirclePlay, AlarmClockPlus, Notebook } from "lucide-react";
 
 // const menu = [
 //     {
@@ -164,8 +164,11 @@ export default function NavBar() {
                 <Earth size={14} />
             </div>
             {/* right buttons */}
-            <div className="">
-                <h1>Login</h1>
+            <div className="flex items-center gap-3">
+                <button className="border"><Notebook strokeWidth={2} size={20} color="white" /></button>
+                <button className="border"><AlarmClockPlus color="white"  strokeWidth={2}  /></button>
+                <button className="bg-[#d2a8f2] text-black font-semibold flex flex-row items-center gap-2 border-2 text-sm py-1 px-3 rounded-md">Run Code<CirclePlay size={18} color="black"/></button>
+                <button className="bg-[#cdf041] text-black font-semibold text-sm px-3 py-1 rounded-md">Login</button>
             </div>
         </div>
     );

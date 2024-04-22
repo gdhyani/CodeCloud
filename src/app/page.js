@@ -40,19 +40,14 @@ export default function Home() {
                     maxSize={60}
                 >
                     <div className="flex px-0">
-                        <Tabs
-                            onValueChange={handleTabChange}
-                            defaultValue="account"
-                            className="w-[400px]"
-                        >
-                            <TabsList className="bg-transparent">
-                                <TabsTrigger
-                                    className="bg-transparent"
-                                    value="console"
-                                >
-                                    Console
+                        <Tabs defaultValue="none" className="w-[400px]">
+                            <TabsList className="bg-transparent font-extralight">
+                                <TabsTrigger className="font-semibold text-muted-foreground" value="problem">
+                                    PROBLEMS
                                 </TabsTrigger>
-                                <TabsTrigger value="github">GitHub</TabsTrigger>
+                                <TabsTrigger className="font-semibold text-muted-foreground" value="output">OUTPUT</TabsTrigger>
+                                <TabsTrigger className="font-semibold text-muted-foreground" value="terminal">TERMINAL</TabsTrigger>
+                                <TabsTrigger className="font-semibold text-muted-foreground" value="console">DEBUG CONSOLE</TabsTrigger>
                             </TabsList>
                             <hr className="w-screen -ml-10" />
                             <TabsContent value="console">

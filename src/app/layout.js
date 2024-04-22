@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
                             defaultSize={20}
                             maxSize={25}
                             minSize={0}
-                            className="border-r border"
+                            className="border-r border  "
                         >
                             <Sidebar_Exp open_name={sidebar_Exp} />
                         </ResizablePanel>
