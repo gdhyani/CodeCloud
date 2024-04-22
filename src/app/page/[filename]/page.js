@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
-import "monaco-themes/themes/Blackboard.json";
+import "monaco-themes/themes/Upstream Sunburst.json";
 import { useEffect } from "react";
 
 export default function Filepage({ params }) {
@@ -10,11 +10,11 @@ export default function Filepage({ params }) {
     useEffect(() => {
         if (monaco) {
           console.log("here is the monaco isntance:", monaco);
-          import('monaco-themes/themes/Blackboard.json')
+          import('monaco-themes/themes/Sunburst.json')
             .then(data => {
-              monaco.editor.defineTheme('blackboard', data);
+              monaco.editor.defineTheme('sunburst', data);
             })
-            .then(_ => monaco.editor.setTheme('blackboard'))
+            .then(_ => monaco.editor.setTheme('sunburst'))
           // monaco.editor.defineTheme("monokai-bright").then(_ => monaco.editor.setMonacoTheme("monokai-bright"));
         }
       }, [monaco]);
