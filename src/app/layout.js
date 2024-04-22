@@ -30,29 +30,21 @@ export default function RootLayout({ children }) {
                     {/* Sidebar Expanded  */}
                     {sidebar_Exp ? (
                         <ResizablePanel
-                            defaultSize={15}
-                            minSize={0}
+                            defaultSize={20}
                             maxSize={25}
+                            minSize={0}
+                            className="border-r border"
                         >
-                            {/*  Sidebar Expanded */}
                             <Sidebar_Exp open_name={sidebar_Exp} />
                         </ResizablePanel>
                     ) : (
                         <></>
                     )}
-
-                    <ResizableHandle />
-                    <ResizablePanel defaultSize={75}>
+                    {/* <ResizableHandle /> */}
+                    <ResizablePanel defaultSize={85}>
                         {/* Main Center Code Editor */}
                         <div className="h-full">{children}</div>
                     </ResizablePanel>
-                    <ResizableHandle />
-                    {/* <ResizablePanel defaultSize={5}>
-                        Log Area Right most 
-                        <div className="flex h-full items-center justify-center p-6">
-                            <h1>Logs</h1>
-                        </div>
-                    </ResizablePanel> */}
                 </ResizablePanelGroup>
             </body>
         </html>

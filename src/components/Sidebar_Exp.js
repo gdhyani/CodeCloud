@@ -25,7 +25,7 @@ export default function Sidebar_Exp(props) {
     useEffect(() => {
         setopenTab(props.open_name);
     }, [props.open_name]);
-
+    const router = useRouter();
     //temp directory
     const [directory, setDirectory] = useState(["File1", "File2"]);
 
@@ -136,18 +136,18 @@ export default function Sidebar_Exp(props) {
                 ) : (
                     <div className="h-screen px-2 flex-col gap-3 -mt-10 items-center justify-center flex">
                         <h1 className="text-xl font-bold mb-4">
-                            Select Your AI Model 
+                            Select Your AI Model
                         </h1>
                         <Select
                             onValueChange={(value) => {
                                 setModel({ ...model, Ai_name: value });
                             }}
                         >
-                            <SelectTrigger className="w-min">
+                            <SelectTrigger required className="w-min">
                                 <SelectValue placeholder="Select an AI" />
                             </SelectTrigger>
-                            <SelectContent className="dark:bg-black">
-                                <SelectGroup>
+                            <SelectContent required className="dark:bg-black">
+                                <SelectGroup required>
                                     <SelectLabel>AI Model</SelectLabel>
                                     <SelectItem value="chatgpt">
                                         ChatGPT
@@ -179,7 +179,8 @@ export default function Sidebar_Exp(props) {
                             onClick={() => {
                                 setModel({ ...model, set: 1 });
                             }}
-                            className="bg-white text-md text-black rounded-md px-4 py-1 mt-3"
+                            className="bg-white text-md text-black disabled:opacity-20 rounded-md px-4 py-1 mt-3"
+                            disabled={model.Ai_name?false:true}
                         >
                             Lets Go!
                         </button>
@@ -190,8 +191,12 @@ export default function Sidebar_Exp(props) {
     } else {
         return (
             <div className="flex px-2 text-center flex-col gap-2 justify-center items-center h-screen">
-                <h1 className="text-lg">{openTab.toUpperCase()} Comming Soon!</h1>
-                <h1 className="text-muted-foreground">Stay tuned for the upcoming updates.</h1>
+                <h1 className="text-lg">
+                    {openTab.toUpperCase()} Comming Soon!
+                </h1>
+                <h1 className="text-muted-foreground">
+                    Stay tuned for the upcoming updates.
+                </h1>
             </div>
         );
     }

@@ -18,7 +18,6 @@ export default function Sidebar({ onchange }) {
     function handleOpenTab(name) {
         // on click handle open and close of perticular tab
         setopen(prevOpen=>prevOpen==name?"":name)
-        console.log(name)
     }
     useEffect(() => {
         onchange(open);
