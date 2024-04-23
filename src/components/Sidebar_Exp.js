@@ -111,7 +111,7 @@ export default function Sidebar_Exp(props) {
                                 key={directory.indexOf(ele)}
                                 name={ele}
                                 onClick={(evt) => {
-                                    router.push(`/page/${ele}`);
+                                    router.push(`/code/${ele}`);
                                 }}
                             >
                                 <FileCode onClick={handleAddFile} size={18} />
