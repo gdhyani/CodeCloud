@@ -13,7 +13,7 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar";
-import { SquareDashedBottomCode, Earth, Origami, CirclePlay, AlarmClockPlus, Notebook } from "lucide-react";
+import { SquareDashedBottomCode, Earth, CirclePlay, AlarmClockPlus, Notebook } from "lucide-react";
 
 // const menu = [
 //     {

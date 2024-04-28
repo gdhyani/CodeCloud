@@ -1,6 +1,6 @@
 "use client";
 import { FilePlus, FolderPlus, RotateCcw, FileCode } from "lucide-react";
-import { Router, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
     Select,

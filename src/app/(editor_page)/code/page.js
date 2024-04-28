@@ -1,4 +1,4 @@
-import { ArrowBigRight, LucideArrowRight } from "lucide-react";
+import { LucideArrowRight } from "lucide-react";
 
 export default function Page() {
     return (

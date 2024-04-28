@@ -1,16 +1,12 @@
 "use client";
-import Image from "next/image";
 import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { ArrowUpFromLine, ArrowDownFromLine } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function FileLayout({children}) {
-    // const [console, setconsole] = useState(false);
 
     function handleTabChange() {
         alert("change");
@@ -22,15 +18,6 @@ export default function FileLayout({children}) {
                 className=" rounded-lg border"
             >
                 <ResizablePanel className="" defaultSize={75} maxSize={93}>
-                    {/* <div className="flex flex-col gap-3 text-center h-full overflow-y-auto items-center justify-center">
-                        <h1 className="text-4xl">
-                            Welcome to{" "}
-                            <span className="font-bold">CodeCloud🔥</span>
-                        </h1>
-                        <p className="text-lg text-muted-foreground">
-                            Lets start your new Project.
-                        </p>
-                    </div> */}
                     {children}
                 </ResizablePanel>
                 <ResizableHandle />
@@ -64,14 +51,3 @@ export default function FileLayout({children}) {
         </main>
     );
 }
-
-
-
-
-// export default function Page() {
-//     return (
-//         <div>
-//             <h1>Pages on Demand</h1>
-//         </div>
-//     );
-// }

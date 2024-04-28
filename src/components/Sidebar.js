@@ -1,9 +1,6 @@
 "use client";
 import {
     Folders,
-    FilePlus,
-    FolderPlus,
-    RotateCcw,
     GitCompareArrows,
     BotMessageSquare,
     MessageCircleCode,
@@ -11,7 +8,6 @@ import {
 } from "lucide-react";
 
 import { useEffect, useState } from "react";
-import Sidebar_Exp from "./Sidebar_Exp";
 
 export default function Sidebar({ onchange }) {
     const [open, setopen] = useState("");

@@ -1,15 +1,13 @@
 "use client";
-import { useRouter } from "next/navigation";
-import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
+import Editor, { useMonaco } from "@monaco-editor/react";
 import "monaco-themes/themes/Upstream Sunburst.json";
 import { useEffect } from "react";
 
 export default function Filepage({ params }) {
-    const router = useRouter();
     const monaco = useMonaco();
     useEffect(() => {
         if (monaco) {
-          console.log("here is the monaco isntance:", monaco);
+          // console.log("here is the monaco isntance:", monaco);
           import('monaco-themes/themes/Sunburst.json')
             .then(data => {
               monaco.editor.defineTheme('sunburst', data);
