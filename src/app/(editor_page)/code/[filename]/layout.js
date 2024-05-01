@@ -7,7 +7,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function FileLayout({children}) {
-
     function handleTabChange() {
         alert("change");
     }

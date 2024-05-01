@@ -1,30 +1,33 @@
 "use client";
-import Editor, { useMonaco } from "@monaco-editor/react";
-import "monaco-themes/themes/Upstream Sunburst.json";
-import { useEffect } from "react";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 export default function Filepage({ params }) {
-    const monaco = useMonaco();
-    useEffect(() => {
-        if (monaco) {
-          // console.log("here is the monaco isntance:", monaco);
-          import('monaco-themes/themes/Sunburst.json')
-            .then(data => {
-              monaco.editor.defineTheme('sunburst', data);
-            })
-            .then(_ => monaco.editor.setTheme('sunburst'))
-          // monaco.editor.defineTheme("monokai-bright").then(_ => monaco.editor.setMonacoTheme("monokai-bright"));
-        }
-      }, [monaco]);
+    function onChange(newValue) {
+        console.log("change", newValue);
+    }
     return (
         <div className="h-screen">
             <h1 className="border text-muted-foreground">{params.filename}</h1>
-            <Editor
-                className="bg-black"
-                theme="vs-dark"
+            <AceEditor
+                mode="javascript"
+                theme="twilight"
                 height="90vh"
-                defaultLanguage="python"
-                defaultValue="// Write your Code Here"
+                width="100%"
+                fontSize={16}
+                onChange={onChange}
+                name="UNIQUE_ID_OF_DIV"
+                lineHeight={28}
+                editorProps={{ $blockScrolling: true }}
+                setOptions={{
+                    enableBasicAutocompletion: true,
+                    enableLiveAutocompletion: true,
+                    enableSnippets: true,
+                    enableAutoIndent: true,
+                }}
             />
         </div>
     );
