@@ -6,8 +6,8 @@ export async function GET() {
         method: "POST",
         headers: {
             "content-type": "application/json",
-            "X-RapidAPI-Key":process.env.X_RapidAPI_Key,
-            "X-RapidAPI-Host":process.env.X_RapidAPI_Host,
+            "X-RapidAPI-Key": process.env.X_RapidAPI_Key,
+            "X-RapidAPI-Host": process.env.X_RapidAPI_Host,
         },
         body: JSON.stringify({
             language: "javascript",
@@ -27,5 +27,27 @@ export async function GET() {
     } catch (error) {
         console.error(error);
         // return NextResponse.error(error);
+    }
+}
+
+export async function POST(request) {
+    const req = await request.json();
+    const url = "https://onecompiler-apis.p.rapidapi.com/api/v1/run";
+    const options = {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+            "X-RapidAPI-Key": process.env.X_RapidAPI_Key,
+            "X-RapidAPI-Host": process.env.X_RapidAPI_Host,
+        },
+        body: JSON.stringify(req),
+    };
+    try {
+        const res = await fetch(url, options);
+        const data = await res.json();
+        return NextResponse.json(data);
+    } catch (error) {
+        console.error("Error in POST function:", error);
+        return NextResponse.error(error.message || "Internal Server Error");
     }
 }
