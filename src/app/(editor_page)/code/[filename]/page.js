@@ -12,7 +12,7 @@ export default function Filepage({ params }) {
         setCode(newValue);
     }
     const handleRun = async () => {
-        //Creating Request to Route.js 
+        //Creating Request to Route.js using Fetch
         const url = "/api/compile";
         const options = {
             method: "POST",

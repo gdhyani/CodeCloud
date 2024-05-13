@@ -167,7 +167,7 @@ export default function NavBar() {
             <div className="flex items-center gap-3">
                 <button className="border"><Notebook strokeWidth={2} size={20} color="white" /></button>
                 <button className="border"><AlarmClockPlus color="white"  strokeWidth={2}  /></button>
-                <button className="bg-[#d2a8f2] text-black font-semibold flex flex-row items-center gap-2 border-2 text-sm py-1 px-3 rounded-md">Run Code<CirclePlay size={18} color="black"/></button>
+                <button onClick={()=>{}} className="bg-[#d2a8f2] text-black font-semibold flex flex-row items-center gap-2 border-2 text-sm py-1 px-3 rounded-md">Run Code<CirclePlay size={18} color="black"/></button>
                 <button className="bg-[#cdf041] text-black font-semibold text-sm px-3 py-1 rounded-md">Login</button>
             </div>
         </div>
