@@ -12,7 +12,7 @@ export default function Filepage({ params }) {
         <div className="h-screen">
             <h1 className="border text-muted-foreground">{params.filename}</h1>
             <AceEditor
-                mode="javascript"
+                mode={codeStore.language}
                 theme="twilight"
                 height="90vh"
                 width="screen"

@@ -48,11 +48,11 @@ export default function NavBar() {
             const res = await fetch(url, options);
             const data = await res.json();
             console.log(data);
-            codeStore.changeOutput(data.stdout);
-            codeStore.changeError(data.stderr);
+            data.stdout ? codeStore.changeOutput(data.stdout) : "";
+            data.stderr ? codeStore.changeError(data.stderr) : "";
             codeStore.changeStatus(data.status);
             codeStore.changeExecutionTime(data.executionTime);
-            console.log(codeStore)
+            console.log(codeStore);
         } catch (error) {
             console.error(error);
         }

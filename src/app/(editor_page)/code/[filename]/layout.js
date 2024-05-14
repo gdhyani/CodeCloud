@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useCodeStore } from "@/lib/store/codeStore";
 
 export default function FileLayout({ children }) {
+    const date = new Date();
     const codeStore = useCodeStore();
     function handleTabChange() {
         alert("change");
@@ -26,16 +27,23 @@ export default function FileLayout({ children }) {
                     collapsible
                     defaultSize={25}
                     minSize={5.2}
-                    maxSize={40}
+                    maxSize={37}
                 >
                     <div className="flex px-0">
                         <Tabs defaultValue="output">
                             <TabsList className="bg-transparent font-extralight">
                                 <TabsTrigger
-                                    className="font-semibold text-muted-foreground"
+                                    className="font-semibold  text-muted-foreground"
                                     value="problem"
                                 >
                                     PROBLEMS
+                                    {codeStore.error.length > 0 ? (
+                                        <h1 className="ml-1 bg-red-600 rounded-full h-5 p-2 text-center items-center text-xs flex">
+                                            {codeStore.error.length}
+                                        </h1>
+                                    ) : (
+                                        ""
+                                    )}
                                 </TabsTrigger>
                                 <TabsTrigger
                                     className="font-semibold text-muted-foreground"
@@ -52,52 +60,70 @@ export default function FileLayout({ children }) {
                                 {/* <TabsTrigger className="font-semibold text-muted-foreground" value="console">DEBUG CONSOLE</TabsTrigger> */}
                             </TabsList>
                             <hr className="w-screen -ml-10" />
-                            <TabsContent value="problem">
-                                <div className="h-52 overflow-y-scroll px-2 pr-6 pl-2">
-                                    <div className="border-b-2 pb-1">
-                                        {codeStore.error.map((element) => (
-                                            <>
-                                                <h1
-                                                    className="font-bold text-sm"
+                            <TabsContent className="bg-black" value="problem">
+                                <div className="h-52 overflow-y-scroll px-2 pr-6 pl-4">
+                                    {codeStore.error.length > 0 ? (
+                                        <div className="">
+                                            {codeStore.error.map((element) => (
+                                                <div
+                                                    className="dark:bg-card mb-4 border px-1 py-1 "
                                                     key={element.time}
                                                 >
-                                                    {element.time}:
-                                                </h1>
-                                                <div
-                                                 className="px-6 pt-1 mb-4 border-b-2"
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: element.error.replace(
-                                                            /\n/g,
-                                                            "<br />"
-                                                        ),
-                                                    }}
-                                                />
-                                            </>
-                                        ))}
-                                    </div>
+                                                    <h1 className="text-red-500 font-bold text-sm">
+                                                        {element.time}:
+                                                    </h1>
+                                                    <div
+                                                        className="px-6 text-muted-foreground pt-1 font-mono"
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: element.error.replace(
+                                                                /\n/g,
+                                                                "<br />"
+                                                            ),
+                                                        }}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <h1 className="text-muted-foreground font-semibold">No Problems! Everythings is working as Expected</h1>
+                                    )}
                                 </div>
                             </TabsContent>
                             <TabsContent value="output">
-                                {codeStore.output
-                                    ? `Output of your code: ${codeStore.output} ${codeStore.executionTime} ${codeStore.status}`
-                                    : ``}
+                                <div className="h-52 overflow-y-scroll px-2 pr-6 pl-4">
+                                    {codeStore.output ? (
+                                        <div className="">
+                                            <div className="flex flex-row justify-between">
+                                                <h1 className="text-muted-foreground">{date.toString()}</h1>
+                                                <h1 className="capitalize ">
+                                                    {codeStore.executionTime}{" "}
+                                                    {codeStore.status}
+                                                </h1>
+                                            </div>
+                                            <div
+                                                className="px-6 pt-1 font-mono"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: codeStore.output.replace(
+                                                        /\n/g,
+                                                        "<br />"
+                                                    ),
+                                                }}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <h1 className="text-muted-foreground font-semibold">
+                                            No Output Yet
+                                        </h1>
+                                    )}
+                                </div>
                             </TabsContent>
                             <TabsContent value="terminal">
-                                Lorem ipsum dolor sit amet consectetur, \n
-                                adipisicing elit. Voluptas delectus minima nam
-                                sed sint, iure quasi sunt numquam ipsa quos
-                                doloribus dolorum soluta at natus, obcaecati ea
-                                quo possimus et. Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Pariatur, quasi
-                                temporibus excepturi magni possimus facere
-                                quibusdam vitae aut, quas, soluta delectus?
-                                Excepturi iste dolore quas rem soluta nobis qui
-                                quos. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Dolores temporibus beatae
-                                veniam sequi, iste quibusdam excepturi tempore
-                                nisi provident similique nostrum suscipit quae
-                                expedita maxime maiores asperiores, molestias
-                                optio odit?
+                                <div className="h-52 overflow-y-scroll px-2 pr-6 pl-4">
+                                    <h1 className="text-muted-foreground font-semibold">
+                                        Coming Soon
+                                    </h1>
+                                    <h1>Please connect with us to improve and enhance features on CodeCloudAI</h1>
+                                </div>
                             </TabsContent>
                         </Tabs>
                     </div>
