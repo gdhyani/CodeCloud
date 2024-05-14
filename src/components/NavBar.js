@@ -13,46 +13,50 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar";
-import { SquareDashedBottomCode, Earth, CirclePlay, AlarmClockPlus, Notebook } from "lucide-react";
-
-// const menu = [
-//     {
-//         top: "File",
-//         elements: [
-//             {
-//                 name: "New Tab",
-//                 to: "",
-//                 subelement: false,
-//                 display: true,
-//             },
-//             {
-//                 name: "New Window",
-//                 to: "",
-//                 subelement: false,
-//                 display: true,
-//             },
-//             {
-//                 name: "New Incognito Window",
-//                 to: "",
-//                 display: true,
-//                 subelement: false,
-//             },
-//             {
-//                 name: "share",
-//                 to: "",
-//                 display: true,
-//                 subelement: true,
-//                 subelements:[
-
-//                 ],
-//             },
-//         ],
-//     },
-//     {},
-//     {},
-// ];
+import { useCodeStore } from "@/lib/store/codeStore";
+import {
+    SquareDashedBottomCode,
+    Earth,
+    CirclePlay,
+    AlarmClockPlus,
+    Notebook,
+} from "lucide-react";
 
 export default function NavBar() {
+    const codeStore = useCodeStore();
+    const handleRun = async () => {
+        //run code from codefile
+        //Creating Request to Route.js using Fetch
+        const url = "/api/compile";
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({
+                language: codeStore.language,
+                files: [
+                    {
+                        name: codeStore.filename,
+                        content: codeStore.code,
+                    },
+                ],
+            }),
+        };
+        try {
+            const res = await fetch(url, options);
+            const data = await res.json();
+            console.log(data);
+            codeStore.changeOutput(data.stdout);
+            codeStore.changeError(data.stderr);
+            codeStore.changeStatus(data.status);
+            codeStore.changeExecutionTime(data.executionTime);
+            console.log(codeStore)
+        } catch (error) {
+            console.error(error);
+        }
+    };
     return (
         <div className="flex items-center justify-between gap-5 px-4 py-2 flex-row">
             {/* menu */}
@@ -165,10 +169,22 @@ export default function NavBar() {
             </div>
             {/* right buttons */}
             <div className="flex items-center gap-3">
-                <button className="border"><Notebook strokeWidth={2} size={20} color="white" /></button>
-                <button className="border"><AlarmClockPlus color="white"  strokeWidth={2}  /></button>
-                <button onClick={()=>{}} className="bg-[#d2a8f2] text-black font-semibold flex flex-row items-center gap-2 border-2 text-sm py-1 px-3 rounded-md">Run Code<CirclePlay size={18} color="black"/></button>
-                <button className="bg-[#cdf041] text-black font-semibold text-sm px-3 py-1 rounded-md">Login</button>
+                <button className="border">
+                    <Notebook strokeWidth={2} size={20} color="white" />
+                </button>
+                <button className="border">
+                    <AlarmClockPlus color="white" strokeWidth={2} />
+                </button>
+                <button
+                    onClick={handleRun}
+                    className="bg-[#d2a8f2] text-black font-semibold flex flex-row items-center gap-2 border-2 text-sm py-1 px-3 rounded-md"
+                >
+                    Run Code
+                    <CirclePlay size={18} color="black" />
+                </button>
+                <button className="bg-[#cdf041] text-black font-semibold text-sm px-3 py-1 rounded-md">
+                    Login
+                </button>
             </div>
         </div>
     );
