@@ -14,8 +14,6 @@ const months = [
     "Dec",
 ];
 const day = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
-// let time = `${day[date.getDay()]} ${months[date.getMonth()]} ${date.getDate()} ,${date.getFullYear()} || ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-
 export const useCodeStore = create((set) => ({
     code: "console.log(23+42)",
     language: "javascript",

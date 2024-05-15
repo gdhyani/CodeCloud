@@ -6,7 +6,7 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/NavBar(c)";
 import Sidebar_Exp from "@/components/Sidebar_Exp";
 import { useState } from "react";
 
