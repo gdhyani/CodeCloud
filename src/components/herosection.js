@@ -4,7 +4,7 @@ import { HeroHighlight, Highlight } from "../components/ui/hero-highlight";
 
 export default function Herosection() {
     return (
-        <HeroHighlight className="w-full">
+        <HeroHighlight className="w-full ">
             <motion.h1
                 initial={{
                     opacity: 0,
