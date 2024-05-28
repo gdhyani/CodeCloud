@@ -4,6 +4,33 @@ import Navbar from "@/components/Navbar(L)";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
+const features = [
+    {
+        title: "AI Code Generation",
+        lines: "Instantly generate code and complex algorithms with AI, freeing developers to focus on innovation.",
+    },
+    {
+        title: "Real-time Bug Detection",
+        lines: "Detect and fixes bugs in real-time, enhancing code quality and speeding up development.",
+    },
+    {
+        title: "Smart Code Completion",
+        lines: "AI-driven suggestions that adapt to your style, speeding up coding with fewer errors.",
+    },
+    {
+        title: "Automated Testing",
+        lines: "Automate testing across all stages, ensuring comprehensive coverage and early issue detection.",
+    },
+    {
+        title: "AI Development Planning",
+        lines: "AI predicts optimal deployment strategies, reducing downtime and improving release planning.",
+    },
+    {
+        title: "AI Development Insights",
+        lines: "Get AI-powered, tailored advice on improving development practices and boosting efficiency.",
+    },
+];
+
 export default function Home() {
     return (
         <main className="bg-[#0f0e0e] h-full">
@@ -118,7 +145,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="relative pt-20">
-                <div class="absolute inset-0 -z-10 h-full w-full opacity-25 bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:26px_26px]"></div>
+                <div className="absolute inset-0 -z-10 h-full w-full opacity-25 bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:26px_26px]"></div>
                 <div className=" flex flex-col">
                     <h1 className="text-[#6a6a6a] m-auto font-semibold">
                         EASY TO USE
@@ -208,6 +235,39 @@ export default function Home() {
                             height={50}
                             alt="html"
                         />
+                    </div>
+                </div>
+                <div className="flex flex-col mt-32 text-center">
+                    <h1 className="text-5xl font-semibold">
+                        Our{" "}
+                        <span className="bg-gradient-to-br from-[#93e0e4] to-[#0aa5e7] bg-clip-text text-transparent">
+                            Features
+                        </span>
+                    </h1>
+
+                    <div className="flex flex-wrap md:flex-row gap-4 md:gap-10 px-20 mt-10">
+                        {features.map((e, index) => (
+                            <div
+                                className="border transition-all backdrop-blur-sm group rounded-2xl px-8 py-8 w-[300px] h-[300px] flex flex-col justify-between"
+                                key={index}
+                            >
+                                <div className="flex justify-between">
+                                    <Image
+                                        src={`/svg${index + 1}.svg`}
+                                        width={50}
+                                        height={50}
+                                        alt="svg"
+                                    />
+                                    <h1 className="text-3xl font-thin">
+                                        {index}
+                                    </h1>
+                                </div>
+                                <div className="flex transition-all flex-col gap-2">
+                                    <h1 className="text-xl font-semibold">{e.title}</h1>
+                                    <h1 className="text-base transition-all hidden group-hover:block">{e.lines}</h1>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="mt-32 mx-10">
