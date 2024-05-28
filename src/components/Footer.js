@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className="flex flex-col bg-[#1a1a1a] capitalize text-[#858585]">
+        <div className="flex flex-col  capitalize text-[#858585]">
             <div className="flex flex-row px-40 pt-20 text-sm pb-16 justify-between">
                 <div className="flex flex-col">
                     <Link href="#"><SquareDashedBottomCode size={40} /></Link>

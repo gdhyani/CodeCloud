@@ -10,7 +10,7 @@ export default function Home() {
             <Mainherosection />
             <section className="">
                 {/* //first */}
-                <div className="bg-[#1a1a1a] pt-20 pb-20">
+                <div className="bg-[#1a1a1a] pt-20 flex flex-row gap-24">
                     <div className="flex flex-col ml-20 w-2/6">
                         <h1 className="text-sm mb-2 font-semibold text-[#6A6A6A]">
                             ANYWHERE & ANYTIME
@@ -36,36 +36,18 @@ export default function Home() {
                             Open web editor <ArrowRight size={18} />
                         </button>
                     </div>
-                    {/* <Image src="" width={} height={} alt=""/> */}
+                    <div className="w-4/6 bg-black border-white border-t-2 border-l-2 rounded-tl-2xl pt-4">
+                        <Image
+                            className="h-[550px] object-cover object-left-top"
+                            src="/image1.jpeg"
+                            width={1000}
+                            height={1000}
+                            alt="img1"
+                        />
+                    </div>
                 </div>
                 {/* //second */}
-                <div className="bg-[#729cfc] text-black pt-20 pb-20">
-                    <div className="flex flex-col ml-20 w-2/6">
-                        <h1 className="text-sm mb-2 font-semibold ">
-                            OUR PLATFORM
-                        </h1>
-                        <h1 className="text-4xl mb-5 font-bold">
-                            Using advance AI model work 5x faster.
-                        </h1>
-                        <p className="mb-5 font-semibold">
-                            Experience coding convenience on the go with our
-                            latest Artificial Intelligence model.
-                        </p>
-                        <p className="mb-10 font-semibold">
-                            Unleash the full potential of your code project by
-                            integrating it with Artificial Intelligence. Our app
-                            lets you seamlessly interact with AI model on the
-                            go, allowing you to work with then with ease.
-                        </p>
-                        <button className="border rounded-lg border-black px-3 pt-1.5 pb-2 gap-2 w-max text-white bg-black flex flex-row items-center">
-                            Know more <ArrowRight size={18} />
-                        </button>
-                    </div>
-                    {/* <Image src="" width={} height={} alt=""/> */}
-                </div>
-
-                {/* //third */}
-                <div className="bg-[#89dc79] text-black pt-20 pb-20 flex flex-row-reverse">
+                <div className="bg-[#89dc79] text-black pt-20 flex flex-row-reverse">
                     <div className="flex flex-col mr-20 w-2/6">
                         <h1 className="text-sm mb-2 font-semibold ">
                             OUR PLATFORM
@@ -90,11 +72,54 @@ export default function Home() {
                             <ArrowRight size={18} />
                         </button>
                     </div>
-                    {/* <Image src="" width={} height={} alt=""/> */}
+                    <div className="w-4/6 -mt-20">
+                        <Image
+                            className="h-[550px] object-cover object-top"
+                            src="/image2.jpeg"
+                            width={900}
+                            height={900}
+                            alt="img1"
+                        />
+                    </div>
+                </div>
+
+                {/* //third */}
+                <div className="bg-[#729cfc] flex flex-row gap-24 text-black pt-20">
+                    <div className="flex flex-col ml-20 w-2/6 ">
+                        <h1 className="text-sm mb-2 font-semibold ">
+                            OUR PLATFORM
+                        </h1>
+                        <h1 className="text-4xl mb-5 font-bold">
+                            Using advance AI model work 5x faster.
+                        </h1>
+                        <p className="mb-5 font-semibold">
+                            Experience coding convenience on the go with our
+                            latest Artificial Intelligence model.
+                        </p>
+                        <p className="mb-10 font-semibold">
+                            Unleash the full potential of your code project by
+                            integrating it with Artificial Intelligence. Our app
+                            lets you seamlessly interact with AI model on the
+                            go, allowing you to work with then with ease.
+                        </p>
+                        <button className="border rounded-lg border-black px-3 pt-1.5 pb-2 gap-2 w-max text-white bg-black flex flex-row items-center">
+                            Know more <ArrowRight size={18} />
+                        </button>
+                    </div>
+                    <div className="w-4/6">
+                        <Image
+                            className="h-[550px] rounded-tl-2xl object-cover object-left-bottom"
+                            src="/image6.jpeg"
+                            width={900}
+                            height={900}
+                            alt="img1"
+                        />
+                    </div>
                 </div>
             </section>
-            <section className="">
-                <div className="mt-20 flex flex-col">
+            <section className="relative pt-20">
+                <div class="absolute inset-0 -z-10 h-full w-full opacity-25 bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:26px_26px]"></div>
+                <div className=" flex flex-col">
                     <h1 className="text-[#6a6a6a] m-auto font-semibold">
                         EASY TO USE
                     </h1>
@@ -197,10 +222,10 @@ export default function Home() {
                         No Setup Required
                     </h1>
                     <Image
-                        className="m-auto my-16 w-auto h-auto"
+                        className="m-auto my-16 w-auto h-auto shadow-2xl rounded-2xl shadow-[#0aa5e7]"
                         src="/screen2.1.png"
-                        width={1500}
-                        height={1500}
+                        width={1300}
+                        height={1300}
                         alt="screen2.1"
                     />
                 </div>
@@ -230,7 +255,7 @@ export default function Home() {
                 />
             </section>
             <section className="">
-                <Footer/>
+                <Footer />
             </section>
         </main>
     );
