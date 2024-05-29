@@ -1,25 +1,69 @@
-import { ArrowRight, SquareDashedBottomCode } from "lucide-react";
+import { SquareDashedBottomCode } from "lucide-react";
 import Link from "next/link";
+
+
 
 export default function Navbar() {
     return (
-        <div className="md:px-20 px-4 py-3 border-b md:py-6 flex justify-between items-center ">
-            <div className="flex gap-3 items-center">
-                <SquareDashedBottomCode size={40} />
-                <h1 className="md:text-3xl text-xl font-semibold md:border-r pr-4">
-                    CodeCloudAi
-                </h1>
-                <h1 className="mt-auto font-mono hidden md:block">
-                    Much more than a compiler
-                </h1>
+        <>
+            <div className="md:px-20 px-4 py-3 text-sm border-b md:py-3 flex flex-col ">
+                <div className="flex flex-row justify-between items-center ">
+                    <div className="flex gap-4 flex-col md:flex-row">
+                        <SquareDashedBottomCode size={32} />
+                        <div className="md:flex hidden items-center gap-5 text-[#c6c6c6]">
+                            <Link className="hover:text-white" href="#">
+                                Features
+                            </Link>
+                            <Link className="hover:text-white" href="#">
+                                Use Case
+                            </Link>
+                            <Link className="hover:text-white" href="#">
+                                Contribution
+                            </Link>
+                            <Link className="hover:text-white" href="#">
+                                Docs
+                            </Link>
+                            <Link className="hover:text-white" href="#">
+                                Support
+                            </Link>
+                            <Link className="hover:text-white" href="#">
+                                Pricing
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="flex gap-4 md:gap-8  items-center">
+                        <Link
+                            className="text-[#c6c6c6] hover:underline underline-offset-4"
+                            href="/login"
+                        >
+                            Sign In
+                        </Link>
+                        <Link
+                            className="px-3 hover:border-white text-[#343434] font-semibold hover:border border border-transparent rounded-sm pt-1 pb-1 md:pb-[6px] bg-[#dcff50]"
+                            href="/code"
+                        >
+                            Try for free
+                        </Link>
+                    </div>
+                </div>
             </div>
-            <Link
-                href="#"
-                className="flex flex-row gap-1 bg-[#1a1a1a] text-sm md:text-base md:hover:underline px-2 md:px-4 py-1 rounded-md border border-gray-600 items-center"
-            >
-                Try now its Free
-                <ArrowRight size={18} />
-            </Link>
-        </div>
+            <div className="md:hidden dark border-b px-3 py-3 justify-around flex items-center gap-5 text-sm text-[#c6c6c6]">
+                <Link className="hover:text-white" href="#">
+                    Features
+                </Link>
+                <Link className="hover:text-white" href="#">
+                    Contribution
+                </Link>
+                <Link className="hover:text-white" href="#">
+                    Docs
+                </Link>
+                <Link className="hover:text-white" href="#">
+                    Support
+                </Link>
+                <Link className="hover:text-white" href="#">
+                    Pricing
+                </Link>
+            </div>
+        </>
     );
 }
