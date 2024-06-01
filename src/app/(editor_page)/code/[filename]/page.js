@@ -14,6 +14,7 @@ export default function Filepage({ params }) {
             <AceEditor
                 mode={codeStore.language}
                 theme="twilight"
+                className="bg-black -ml-2"
                 height="90vh"
                 width="screen"
                 fontSize={16}

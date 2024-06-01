@@ -26,8 +26,8 @@ export default function CodeLayout({ children }) {
                         {/* Sidebar Expanded  */}
                         {sidebar_Exp ? (
                             <ResizablePanel
-                                defaultSize={20}
-                                maxSize={25}
+                                defaultSize={30}
+                                maxSize={30}
                                 minSize={0}
                                 className="border-r border  "
                             >
@@ -36,7 +36,7 @@ export default function CodeLayout({ children }) {
                         ) : (
                             <></>
                         )}
-                        {/* <ResizableHandle /> */}
+                        <ResizableHandle />
                         <ResizablePanel defaultSize={85}>
                             {/* Main Center Code Editor */}
                             <div className="h-full">{children}</div>

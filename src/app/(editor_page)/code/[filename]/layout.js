@@ -25,7 +25,7 @@ export default function FileLayout({ children }) {
                 <ResizableHandle />
                 <ResizablePanel
                     collapsible
-                    defaultSize={25}
+                    defaultSize={5.2}
                     minSize={5.2}
                     maxSize={37}
                 >

@@ -101,7 +101,7 @@ export default function Home() {
                     </div>
                     <div className="md:w-4/6 md:-mt-20">
                         <Image
-                            className="h-[550px] object-cover object-top"
+                            className="h-[650px] object-cover object-top"
                             src="/image2.jpeg"
                             width={900}
                             height={900}
