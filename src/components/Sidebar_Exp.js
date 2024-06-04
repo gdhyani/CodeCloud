@@ -11,6 +11,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { useSettingStore } from "@/lib/store/settingStore";
+import AiChat from "./AiChat";
 
 // on pressing add file handlefile function trigger which open input using form state by making it true
 // the form value will store in filename. When pressed enter onSubmit will trigger and make form
@@ -18,7 +20,7 @@ import {
 // blank space so that it can start blank on next file creation.
 
 export default function Sidebar_Exp(props) {
-    // console.log(props);
+    const settingStore = useSettingStore();
 
     //check which tab is open
     const [openTab, setopenTab] = useState(props.open_name);
@@ -26,8 +28,6 @@ export default function Sidebar_Exp(props) {
         setopenTab(props.open_name);
     }, [props.open_name]);
     const router = useRouter();
-    //temp directory
-    const [directory, setDirectory] = useState(["File1", "File2"]);
 
     // Explorer Functions and States
     // display form after pressing create file and folder button.
@@ -46,7 +46,6 @@ export default function Sidebar_Exp(props) {
 
     function handleRefresh() {
         // refresh the folder structure
-        alert("Add File");
     }
     //end
     //Ai Function and States
@@ -67,7 +66,7 @@ export default function Sidebar_Exp(props) {
                 <div className="group h-screen">
                     {/* File Heading */}
                     <div className="px-1 py-1 pr-2 flex flex-row justify-between border-b">
-                        <h1 className="">Project Name</h1>
+                        <h1 className="">{settingStore.projectName}</h1>
                         <div className="group-hover:flex cursor-pointer hidden gap-2 flex-row">
                             <FilePlus onClick={handleAddFile} size={18} />
                             <FolderPlus onClick={handleAddFolder} size={18} />
@@ -75,14 +74,14 @@ export default function Sidebar_Exp(props) {
                         </div>
                     </div>
                     {/* File Container */}
-                    <div className="px-1 py-2 flex flex-col">
+                    <div className="px-2 py-2 flex flex-col">
                         {form ? (
                             <form
                                 className="w-full"
                                 onSubmit={(evt) => {
                                     evt.preventDefault();
                                     setform(false);
-                                    setDirectory([...directory, filename]);
+                                    settingStore.changeDirectories(filename);
                                     setFilename("");
                                 }}
                             >
@@ -105,10 +104,10 @@ export default function Sidebar_Exp(props) {
                         ) : (
                             ""
                         )}
-                        {directory.map((ele) => (
+                        {settingStore.directories.map((ele) => (
                             <button
                                 className="flex flex-row gap-2 items-center py-1"
-                                key={directory.indexOf(ele)}
+                                key={settingStore.directories.indexOf(ele)}
                                 name={ele}
                                 onClick={(evt) => {
                                     router.push(`/code/${ele}`);
@@ -125,14 +124,14 @@ export default function Sidebar_Exp(props) {
     }
     if (openTab == "ai") {
         return (
-            <div className="px-1">
+            <div className="px-1 h-full">
                 <div className="flex flex-row border-b justify-between">
                     <h1 className=" px-1 font-semibold text-muted-foreground ">
                         Ai Model
                     </h1>
                 </div>
                 {model.set ? (
-                    <h1>Model Selected</h1>
+                    <AiChat/>
                 ) : (
                     <div className="h-screen px-2 flex-col gap-3 -mt-10 items-center justify-center flex">
                         <h1 className="text-xl font-bold mb-4">
@@ -140,7 +139,7 @@ export default function Sidebar_Exp(props) {
                         </h1>
                         <Select
                             onValueChange={(value) => {
-                                setModel({ ...model, Ai_name: value });
+                                settingStore.changeAiModel(value)
                             }}
                         >
                             <SelectTrigger required className="w-min">
@@ -149,8 +148,8 @@ export default function Sidebar_Exp(props) {
                             <SelectContent required className="dark:bg-black">
                                 <SelectGroup required>
                                     <SelectLabel>AI Model</SelectLabel>
-                                    <SelectItem value="chatgpt">
-                                        ChatGPT
+                                    <SelectItem value="cloudeai">
+                                        Cloude Ai
                                     </SelectItem>
                                     <SelectItem value="openai">
                                         Open Ai Codex
@@ -166,9 +165,9 @@ export default function Sidebar_Exp(props) {
                         </Select>
                         <h1 className="text-muted-foreground  text-center text-sm">
                             You need to enter your own api key inorder to use{" "}
-                            {model.Ai_name ? (
+                            {settingStore.aiModel ? (
                                 <span className="text-white text-xs px-1 border rounded border-white">
-                                    {model.Ai_name.toUpperCase()}
+                                    {settingStore.aiModel.toUpperCase()}
                                 </span>
                             ) : (
                                 ""
@@ -180,7 +179,7 @@ export default function Sidebar_Exp(props) {
                                 setModel({ ...model, set: 1 });
                             }}
                             className="bg-white text-md text-black disabled:opacity-20 rounded-md px-4 py-1 mt-3"
-                            disabled={model.Ai_name?false:true}
+                            disabled={settingStore.aiModel ? false : true}
                         >
                             Lets Go!
                         </button>
