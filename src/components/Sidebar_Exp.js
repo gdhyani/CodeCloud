@@ -130,7 +130,7 @@ export default function Sidebar_Exp(props) {
                         Ai Model
                     </h1>
                 </div>
-                {model.set ? (
+                {settingStore.aiModel ? (
                     <AiChat/>
                 ) : (
                     <div className="h-screen px-2 flex-col gap-3 -mt-10 items-center justify-center flex">
