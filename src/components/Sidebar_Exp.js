@@ -34,6 +34,8 @@ export default function Sidebar_Exp(props) {
     const [form, setform] = useState(false);
     // file name for from to store file name value.
     const [filename, setFilename] = useState("");
+    // state storage for ai selector
+    const [aiModel, setAiModel] = useState("");
     function handleAddFile() {
         // create files
         setform(true);
@@ -124,14 +126,14 @@ export default function Sidebar_Exp(props) {
     }
     if (openTab == "ai") {
         return (
-            <div className="px-1 h-full">
+            <div className="px-1 h-full pt-10">
                 <div className="flex flex-row border-b justify-between">
                     <h1 className=" px-1 font-semibold text-muted-foreground ">
-                        Ai Model
+                        {settingStore.aiModel.toUpperCase()}
                     </h1>
                 </div>
                 {settingStore.aiModel ? (
-                    <AiChat/>
+                    <AiChat />
                 ) : (
                     <div className="h-screen px-2 flex-col gap-3 -mt-10 items-center justify-center flex">
                         <h1 className="text-xl font-bold mb-4">
@@ -139,7 +141,9 @@ export default function Sidebar_Exp(props) {
                         </h1>
                         <Select
                             onValueChange={(value) => {
-                                settingStore.changeAiModel(value)
+                                setAiModel(value);
+                                console.log(value);
+                                console.log(aiModel);
                             }}
                         >
                             <SelectTrigger required className="w-min">
@@ -167,7 +171,7 @@ export default function Sidebar_Exp(props) {
                             You need to enter your own api key inorder to use{" "}
                             {settingStore.aiModel ? (
                                 <span className="text-white text-xs px-1 border rounded border-white">
-                                    {settingStore.aiModel.toUpperCase()}
+                                    {aiModel.toUpperCase()}
                                 </span>
                             ) : (
                                 ""
@@ -176,10 +180,10 @@ export default function Sidebar_Exp(props) {
                         </h1>
                         <button
                             onClick={() => {
-                                setModel({ ...model, set: 1 });
+                                settingStore.changeAiModel(aiModel);
                             }}
                             className="bg-white text-md text-black disabled:opacity-20 rounded-md px-4 py-1 mt-3"
-                            disabled={settingStore.aiModel ? false : true}
+                            disabled={aiModel ? false : true}
                         >
                             Lets Go!
                         </button>
