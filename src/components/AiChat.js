@@ -3,6 +3,7 @@ import { useSettingStore } from "@/lib/store/settingStore";
 import { useChat } from "@ai-sdk/react";
 import { Send } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import Markdown from "react-markdown";
 
 export default function AiChat() {
     // AI Chat bot API
@@ -16,7 +17,10 @@ export default function AiChat() {
     //scroll to latest text
     const messagesEndRef = useRef(null);
     const scrollToBottom = () => {
-        messagesEndRef.current.scrollIntoView({ behavior: "instant" , block: "end" });
+        messagesEndRef.current.scrollIntoView({
+            behavior: "instant",
+            block: "end",
+        });
     };
     useEffect(scrollToBottom, [messages]);
 
@@ -39,16 +43,36 @@ export default function AiChat() {
     return (
         <div className="h-full relative mx-2 my-2 px-1 py-1 flex flex-col pb-10">
             <div className="h-5/6 overflow-y-auto overflow-x-hidden">
-                {messages.map((ele,index) => (
+                {messages.map((ele, index) => (
                     <h1
-                        className={`border text-[13px] leading-relaxed tracking-wide w-8/12 rounded-xl px-2 py-2 my-2 ${
+                        className={`border mb-4 text-[13px] leading-loose tracking-wide min-w-8/12 rounded-xl px-2 py-2 my-2 ${
                             ele.role === "user"
                                 ? "ml-auto bg-popover-foreground text-black "
                                 : "mr-auto "
                         }`}
                         key={index}
                     >
-                        {ele.content}
+                        <Markdown
+                            components={{
+                                code({
+                                    inline,
+                                    className,
+                                    children,
+                                    ...props
+                                }) {
+                                    return (
+                                        <code
+                                        className="font-mono bg-primary-foreground p-1 border-white border rounded"
+                                            {...props}
+                                        >
+                                            {children}
+                                        </code>
+                                    );
+                                },
+                            }}
+                        >
+                            {ele.content}
+                        </Markdown>
                     </h1>
                 ))}
                 <div ref={messagesEndRef}></div>

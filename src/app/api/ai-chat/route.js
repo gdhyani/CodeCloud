@@ -25,4 +25,5 @@ export async function POST(request) {
         messages: req.messages,
     });
     return result.toAIStreamResponse();
+    console.log(result)
 }
