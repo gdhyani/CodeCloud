@@ -1,3 +1,4 @@
+import { useCodeStore } from "@/lib/store/codeStore";
 import { useSettingStore } from "@/lib/store/settingStore";
 import { useChat } from "@ai-sdk/react";
 import { Send } from "lucide-react";
@@ -8,8 +9,9 @@ export default function AiChat() {
     const { messages, input, handleInputChange, handleSubmit } = useChat({
         api: "/api/ai-chat",
     });
-    const [code, setCode] = useState("print(21+12=)");
+
     const settingStore = useSettingStore();
+    const codeStore = useCodeStore();
 
     //scroll to latest text
     const messagesEndRef = useRef(null);
@@ -27,7 +29,7 @@ export default function AiChat() {
                         ...messages,
                         {
                             role: "user",
-                            content: `Message: ${input}, Code: ${code}`,
+                            content: `Message: ${input}, Code: ${codeStore.code}`,
                         },
                     ],
                 },
