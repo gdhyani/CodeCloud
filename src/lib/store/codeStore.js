@@ -15,8 +15,8 @@ const months = [
 ];
 const day = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
 export const useCodeStore = create((set) => ({
-    code: "console.log(23+42)",
-    language: "javascript",
+    code: "print(23+42)",
+    language: "python",
     filename: "index.js",
     output: "",
     error: [],

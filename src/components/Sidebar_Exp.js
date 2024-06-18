@@ -62,7 +62,7 @@ export default function Sidebar_Exp(props) {
             <div className="">
                 <div className="flex flex-row border-b justify-between">
                     <h1 className=" px-1 font-semibold text-muted-foreground ">
-                        Explorer
+                        EXPLORER
                     </h1>
                 </div>
                 <div className="group h-screen">
@@ -126,7 +126,7 @@ export default function Sidebar_Exp(props) {
     }
     if (openTab == "ai") {
         return (
-            <div className="px-1 h-full pt-10">
+            <div className="px-1 h-full pt-">
                 <div className="flex flex-row border-b justify-between">
                     <h1 className=" px-1 font-semibold text-muted-foreground ">
                         {settingStore.aiModel.toUpperCase()}

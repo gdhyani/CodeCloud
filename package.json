@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/mistral": "^0.0.18",
     "@ai-sdk/openai": "^0.0.28",
     "@ai-sdk/react": "^0.0.1",
     "@clerk/nextjs": "^5.1.4",
