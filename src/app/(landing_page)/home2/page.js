@@ -78,7 +78,7 @@ export default function Home2() {
                     src="/image1.jpeg"
                 />
             </section>
-            <section className="bg-white px-4  -mt-32 pt-56 pb-20 text-black">
+            <section className="bg-white px-4  -mt-24 pt-48 pb-20 text-black">
                 <h1 className="text-4xl font-medium">
                     Powerful features to help you develop faster
                 </h1>
@@ -105,9 +105,31 @@ export default function Home2() {
                     Browse all features
                 </button>
             </section>
-            <section className="bg-black text-white px-4 py-20">
-                    <h1 className="text-3xl font-medium">Save time with our AI Agent!</h1>
-                    <h1 className="text-sm"></h1>
+            <section className="bg-black flex flex-col gap-3 overflow-hidden text-white px-4 py-28">
+                <h1 className="text-4xl font-medium">
+                    Save time with our AI Agent!
+                </h1>
+                <h1 className="text-[#868686] leading-normal">
+                    Increase your productivity upto 3x times with CodeCloud's
+                    trained Aritificial intelligence agent. From finding bugs to
+                    fixing and code completion, everything is taken care by
+                    CodeCloud.
+                </h1>
+                <div className="flex flex-col gap-7 text-left mt-10">
+                    <div className="bg-[#1c1c1c] px-5 py-10 rounded-2xl">
+                        <h1 className="text-lg">Priotize your idea and leave the coding to AI Code</h1>
+                    </div>
+                    <div className="bg-[#1c1c1c] px-5 py-10 rounded-2xl">
+                        <h1 className="text-lg">Unlock the power of code with Instant suggestions</h1>
+                    </div>
+                    <div className="bg-[#1c1c1c] z-10 px-5 py-10 rounded-2xl">
+                        <h1 className="text-lg">Experience the Code Generator that delivers on Seconds</h1>
+                    </div>
+                </div>
+                <Image src="/globe.gif" className="scale-[2.5] overflow-hidden mt-32 mb-10 z-0 w-screen" width={100} height={100} alt="globe"/>
+            </section>
+            <section className="bg-white h-screen py-20 px-5 text-black">
+                <h1>Welcome</h1>
             </section>
         </div>
     );
