@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <>
-            <div className="md:px-20 px-4 py-3 text-sm border-b md:py-3 flex flex-col ">
+        <div className="fixed top-0 left-0 right-0 bg-black z-50">
+            <div className="md:px-20  px-4 py-3 text-sm border-b md:py-3 flex flex-col ">
                 <div className="flex flex-row justify-between items-center ">
                     <div className="flex gap-4 flex-col md:flex-row">
                         <SquareDashedBottomCode size={32} />
@@ -64,6 +64,6 @@ export default function Navbar() {
                     Pricing
                 </Link>
             </div>
-        </>
+        </div>
     );
 }

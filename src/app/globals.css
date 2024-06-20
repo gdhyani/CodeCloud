@@ -6,6 +6,9 @@
 body {
     font-family: "Poppins", sans-serif;
 }
+.heroback{
+    background: url("/dotted-bg.png");
+}
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
