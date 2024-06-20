@@ -1,4 +1,6 @@
 import {
+    Apple,
+    AppleIcon,
     ArrowRight,
     Bug,
     Code,
@@ -47,6 +49,30 @@ const features = [
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo odio facere nobis sapiente sit ad mollitia assumenda culpa nam veniam impedit nisi officia fuga, laborum, saepe aspernatur a itaque numquam!",
     },
 ];
+
+const platform = [
+    {
+        icon: "/apple.svg",
+        title: "Apple",
+        size:20
+    },
+    {
+        icon: "/linux.svg",
+        title: "Linux",
+        size:18
+    },
+    {
+        icon: "/mobile.svg",
+        title: "Mobile",
+        size:18
+    },
+    {
+        icon: "/windows.svg",
+        title: "Windows",
+        size:20
+    },
+];
+
 export default function Home2() {
     return (
         <div className="flex flex-col text-center">
@@ -117,19 +143,73 @@ export default function Home2() {
                 </h1>
                 <div className="flex flex-col gap-7 text-left mt-10">
                     <div className="bg-[#1c1c1c] px-5 py-10 rounded-2xl">
-                        <h1 className="text-lg">Priotize your idea and leave the coding to AI Code</h1>
+                        <h1 className="text-lg">
+                            Priotize your idea and leave the coding to AI Code
+                        </h1>
                     </div>
                     <div className="bg-[#1c1c1c] px-5 py-10 rounded-2xl">
-                        <h1 className="text-lg">Unlock the power of code with Instant suggestions</h1>
+                        <h1 className="text-lg">
+                            Unlock the power of code with Instant suggestions
+                        </h1>
                     </div>
                     <div className="bg-[#1c1c1c] z-10 px-5 py-10 rounded-2xl">
-                        <h1 className="text-lg">Experience the Code Generator that delivers on Seconds</h1>
+                        <h1 className="text-lg">
+                            Experience the Code Generator that delivers on
+                            Seconds
+                        </h1>
                     </div>
                 </div>
-                <Image src="/globe.gif" className="scale-[2.5] overflow-hidden mt-32 mb-10 z-0 w-screen" width={100} height={100} alt="globe"/>
+                <Image
+                    src="/globe.gif"
+                    className="scale-[2.5] overflow-hidden mt-32 mb-10 z-0 w-screen"
+                    width={100}
+                    height={100}
+                    alt="globe"
+                />
             </section>
-            <section className="bg-white h-screen py-20 px-5 text-black">
-                <h1>Welcome</h1>
+            <section className="bg-[#f8f8f8] flex flex-col gap-3 py-20 px-5 text-black">
+                <h1 className="text-4xl font-semibold">
+                    Supporting more than 500+ languages
+                </h1>
+                <h1 className="text-[#868686]">
+                    With support of more than 500+ languages, our Artificial
+                    Agent can help you code with any language or stack. Just
+                    create file and start your awesome journey with us.
+                </h1>
+                <button className="bg-black border border-black hover:bg-white hover:text-black w-full transition ease-linear duration-200 text-white rounded-xl text-center py-4 text-base my-3">
+                    Browse Intergration
+                </button>
+                <Image
+                    src="/languages3.png"
+                    width={1000}
+                    height={1000}
+                    alt="coding languages"
+                />
+            </section>
+            <section className="bg-black px-4 text-left flex flex-col gap-4 text-white py-20">
+                <h1 className="text-4xl font-semibold">The code editor of the future</h1>
+                <h1 className="text-[#868686]">
+                    Coding possible on all the platforms, you just need a
+                    browser to start making your dream application
+                </h1>
+                <h1 className="font-semibold mt-10">Start your journey on:</h1>
+                <div className="flex gap-5 flex-wrap">
+                    {platform.map((e, index) => (
+                        <div
+                            className="flex bg-[#1c1c1c] hover:-translate-y-1 transition duration-150 hover:bg-[#4e4e4f] rounded-2xl gap-4 h-16 justify-center  px-5 flex-grow flex-row items-center"
+                            key={index}
+                        >
+                            <Image
+                                src={e.icon}
+                                width={e.size}
+                                height={e.size}
+                                alt={e.title}
+                            />
+                            <h1 className="text-sm font-semibold">{e.title}</h1>
+                        </div>
+                    ))}
+                    
+                </div>
             </section>
         </div>
     );
