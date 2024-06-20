@@ -21,7 +21,7 @@ export async function POST(request) {
 
     const result = await streamText({
         model: mistral("mistral-large-latest"),
-        system: "your are a software engineer in python language",
+        system: "your are a software engineer in python language. Write as small code as possible. Always see code for changes. the code is provided to you and it will change on every message so check regularly.",
         messages: req.messages,
     });
     return result.toAIStreamResponse();

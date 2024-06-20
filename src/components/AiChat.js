@@ -62,7 +62,7 @@ export default function AiChat() {
                                 }) {
                                     return (
                                         <code
-                                        className="font-mono bg-primary-foreground p-1 border-white border rounded"
+                                        className="font-mono bg-primary-foreground p-1 border-white border rounded" 
                                             {...props}
                                         >
                                             {children}
