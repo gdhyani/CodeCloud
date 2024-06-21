@@ -3,7 +3,7 @@ import React from "react";
 
 export function DockA() {
   return (
-    <div className="relative flex h-full scale-125 mb-10 md:mb-0  w-full max-w-[32rem] flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
+    <div className="relative flex h-full scale-125 md:scale-95 lg:scale-125 mb-10 md:mb-0  w-full max-w-[32rem] flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
       
       <Dock>
         <DockIcon>
