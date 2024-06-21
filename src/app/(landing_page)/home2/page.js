@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import "../../globals.css";
+import { GridCom } from "@/components/GridCom";
 const features = [
     {
         logo: <Wrench size={40} />,
@@ -216,6 +217,11 @@ export default function Home2() {
                             <h1 className="font-semibold">{e.title}</h1>
                         </div>
                     ))}
+                </div>
+            </section>
+            <section className="px-4 flex flex-col py-20 bg-white text-black">
+                <div className="">
+                    <GridCom/>
                 </div>
             </section>
         </div>
