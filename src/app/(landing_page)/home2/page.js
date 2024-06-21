@@ -135,16 +135,8 @@ export default function Home2() {
                     Browse all features
                 </button>
             </section>
-            <section className="bg-black flex flex-col gap-3 overflow-hidden text-white z-0 px-4 py-28">
-                <h1 className="text-4xl font-medium">
-                    Save time with our AI Agent!
-                </h1>
-                <h1 className="text-[#868686] leading-normal">
-                    Increase your productivity upto 3x times with CodeCloud{"'"}
-                    s trained Aritificial intelligence agent. From finding bugs
-                    to fixing and code completion, everything is taken care by
-                    CodeCloud.
-                </h1>
+            {/* <section className="px-4 flex flex-col py-20 bg-black text-white">
+                
                 <Image
                     src="/globe.gif"
                     className="scale-[2.5] overflow-hidden mt-28 mb-20 -z-10 w-screen"
@@ -173,6 +165,23 @@ export default function Home2() {
                         Browse all features
                     </button>
                 </div>
+            </section> */}
+            <section className="bg-black flex flex-col gap-3 overflow-hidden text-white z-0 px-4 py-28">
+                <h1 className="text-4xl font-medium">
+                    Save time with our AI Agent!
+                </h1>
+                <h1 className="text-[#868686] leading-normal">
+                    Increase your productivity upto 3x times with CodeCloud{"'"}
+                    s trained Aritificial intelligence agent. From finding bugs
+                    to fixing and code completion, everything is taken care by
+                    CodeCloud.
+                </h1>
+                <div className="mt-10">
+                    <GridCom />
+                </div>
+                <button className="bg-[#f4f4f4] mt-10 border-white border w-full hover:bg-black hover:text-white transition ease-linear duration-200 text-black rounded-xl text-center py-4 text-base ">
+                    Browse all features
+                </button>
             </section>
             <section className="bg-[#f8f8f8] flex flex-col gap-3 py-20 px-5 text-black">
                 <h1 className="text-4xl font-semibold">
@@ -217,11 +226,6 @@ export default function Home2() {
                             <h1 className="font-semibold">{e.title}</h1>
                         </div>
                     ))}
-                </div>
-            </section>
-            <section className="px-4 flex flex-col py-20 bg-white text-black">
-                <div className="">
-                    <GridCom/>
                 </div>
             </section>
         </div>

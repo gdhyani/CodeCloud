@@ -9,12 +9,11 @@ import { AvatarCirclesA } from "./AvatarCirclesA";
 
 export function GridCom() {
   return (
-    <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[20rem]">
+    <BentoGrid className="max-w-6xl gap-10 md:gap-5 mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
           title={item.title}
-          description={item.description}
           header={item.header}
           className={item.className}
         />
@@ -28,26 +27,21 @@ const Skeleton = () => (
 const items = [
   {
     title: "The Dawn of Innovation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
     header: <AnimatedListA/>,
     className: "md:col-span-2",
   },
   {
     title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
     header: <GaugeCircleA/>,
     className: "md:col-span-1",
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
+    title: "The Art of Integration",
     header: <DockA />,
     className: "md:col-span-1",
   },
   {
-    title: "The Power of Communication",
-    description:
-      "Understand the impact of effective communication in our lives.",
+    title: "The Power of Contributions",
     header: <AvatarCirclesA/>,
     className: "md:col-span-2",
   },

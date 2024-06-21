@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className="flex flex-col border-t border-[#3a3a3a]  capitalize text-white">
+        <div className="flex flex-col border-t bg-black capitalize text-white">
             <div className="flex flex-col md:flex-row px-10 md:px-40 pt-20 text-sm md:pb-16 pb-14 justify-between">
                 <div className="flex flex-col">
                     <Link href="#">
@@ -128,7 +128,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col text-center md:flex-row gap-4 text-[#6a6a6a] border-t mt-10 mb-5 border-[#3a3a3a] text-sm pt-5 justify-between px-5 md:px-40">
+            <div className="flex flex-col text-center md:flex-row gap-4 text-[#6a6a6a] border-t mt-10 mb-5 text-sm pt-5 justify-between px-5 md:px-40">
                 <h1>Copyright © 2024, CodeCloudAI. All rights reserved.</h1>
                 <div className="flex gap-6 text-center m-auto md:m-0">
                     <Link
