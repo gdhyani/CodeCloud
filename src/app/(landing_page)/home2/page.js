@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import "../../globals.css";
 import { GridCom } from "@/components/GridCom";
+import Link from "next/link";
 const features = [
     {
         logo: <Wrench size={40} />,
@@ -80,15 +81,15 @@ export default function Home2() {
             {/* //Hero section */}
             <section
                 style={{ backgroundImage: "url(/dotted-bg.png)" }}
-                className="pt-40 md:pt-20 bg-contain bg-top px-2 flex flex-col gap-3 overflow-hidden"
+                className="pt-32 md:pt-20 bg-contain bg-top px-5 flex flex-col gap-3 overflow-hidden"
             >
-                <h1 className="bg-[#3a3a3a] my-2 flex gap-2 rounded-full w-max px-2 py-1 text-sm m-auto items-center">
-                    <span className="bg-white text-black px-2 py-1 rounded-full">
+                <Link target="_blank" href="https://www.github.com/gdhyani" className="bg-[#3a3a3a] my-2 flex gap-2 rounded-full w-max px-2 py-1 text-sm m-auto items-center">
+                    <span className="bg-black text-white px-2 py-1 rounded-full">
                         New
                     </span>
                     CodeCloudAI v2.0 is now released
                     <ArrowRight size={20} />
-                </h1>
+                </Link>
                 <h1 className="text-4xl md:text-7xl md:w-3/6 md:leading-tight md:mx-auto font-semibold md:font-medium leading-snug">
                     The next-gen code editor is here
                 </h1>
@@ -114,7 +115,7 @@ export default function Home2() {
                     src="/image1.jpeg"
                 />
             </section>
-            <section className="bg-white px-4 md:px-40 z-10 -mt-44 md:-mt-[400px] pt-48 md:pt-[420px] pb-20 text-black">
+            <section className="bg-white px-5 md:px-40 z-10 -mt-44 md:-mt-[400px] pt-48 md:pt-[420px] pb-20 text-black">
                 <h1 className="text-4xl md:text-6xl md:w-2/3 md:m-auto font-medium">
                     Powerful features to help you develop faster
                 </h1>
@@ -122,7 +123,7 @@ export default function Home2() {
                     {features.map((e, index) => (
                         <div
                             key={index}
-                            className="bg-[#f4f4f4] rounded-2xl gap-2 text-left w-full md:w-[350px] px-5  py-10 flex flex-col"
+                            className="bg-[#f4f4f4]  rounded-2xl gap-2 text-left w-full md:w-[350px] px-5  py-10 flex flex-col"
                         >
                             <div className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] mb-5 w-min px-3 py-3 rounded-xl">
                                 {e.logo}
@@ -174,7 +175,7 @@ export default function Home2() {
                     </button>
                 </div>
                 </section> */}
-            <section className="bg-black flex flex-col gap-5 overflow-hidden text-white z-0 px-4 py-24">
+            <section className="bg-black flex flex-col gap-5 overflow-hidden text-white z-0 px-5 py-24">
                 <h1 className="text-4xl md:text-6xl md:w-1/2 md:m-auto font-medium md:mt-5">
                     Save time with our AI Agent!
                 </h1>
@@ -229,14 +230,14 @@ export default function Home2() {
                     alt="coding languages"
                 />
             </section>
-            <section className="bg-black px-4 text-left md:items-center flex flex-col md:flex-row md:px-20 gap-4 text-white py-20">
+            <section className="bg-black px-5 text-left md:items-center flex flex-col md:flex-row md:px-20 gap-4 text-white py-20">
                 <div className="flex flex-col gap-4 md:mt-10">
                     <h1 className="text-4xl md:text-6xl font-semibold">
-                        The code editor of the future
+                        The code editor of the future.
                     </h1>
                     <h1 className="text-[#868686] md:text-[18px] md:w-5/6 ">
                         Coding possible on all the platforms, you just need a
-                        browser to start making your dream application
+                        browser to start making your dream application.
                     </h1>
                 </div>
 
