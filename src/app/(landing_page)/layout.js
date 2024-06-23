@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" className="!scroll-smooth">
             <body className="dark flex flex-col pt-10">
                 <Navbar />
                 {/* <main className="min-h-screen">  */}

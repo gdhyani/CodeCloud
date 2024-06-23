@@ -77,7 +77,7 @@ const platform = [
 
 export default function Home2() {
     return (
-        <div className="flex flex-col text-center">
+        <div className="flex flex-col text-center scroll-smooth">
             {/* //Hero section */}
             <section
                 style={{ backgroundImage: "url(/dotted-bg.png)" }}
@@ -99,12 +99,12 @@ export default function Home2() {
                     and Execute with AI CODE
                 </h1>
                 <div className="flex flex-col md:flex-row items-center mt-8 md:mt-3 gap-5 justify-center w-full">
-                    <button className="bg-white text-black border border-white hover:bg-black hover:text-white w-full md:w-max px-8 transition ease-linear duration-200 rounded-xl text-center py-3 text-base ">
+                    <Link href="/code" className="bg-white text-black border border-white hover:bg-black hover:text-white w-full md:w-max px-8 transition hover:-translate-y-1 ease-linear duration-200 rounded-xl text-center py-4 text-base ">
                         Get Started
-                    </button>
-                    <button className="bg-black border border-white hover:bg-white hover:text-black w-full md:w-max px-8 transition ease-linear duration-200 text-white rounded-xl text-center py-4 text-base my-3">
+                    </Link>
+                    <Link href="#features" className="bg-black scroll-smooth border border-white hover:bg-white hover:text-black w-full md:w-max px-8 transition hover:-translate-y-1 ease-linear duration-200 text-white rounded-xl text-center py-4 text-base my-3">
                         Know More
-                    </button>
+                    </Link>
                 </div>
 
                 <Image
@@ -115,7 +115,7 @@ export default function Home2() {
                     src="/image1.jpeg"
                 />
             </section>
-            <section className="bg-white px-5 md:px-40 z-10 -mt-44 md:-mt-[400px] pt-48 md:pt-[420px] pb-20 text-black">
+            <section id="features" className="bg-white px-5 md:px-40 z-10 -mt-44 md:-mt-[400px] pt-48 md:pt-[420px] pb-20 text-black">
                 <h1 className="text-4xl md:text-6xl md:w-2/3 md:m-auto font-medium">
                     Powerful features to help you develop faster
                 </h1>
@@ -136,9 +136,9 @@ export default function Home2() {
                     ))}
                 </div>
                 <div className="flex flex-col md:flex-row items-center mt-8 md:mt-12 gap-2 md:gap-5 justify-center w-full">
-                    <button className="bg-black text-white border border-black hover:bg-white hover:text-black w-full md:w-max px-8 transition ease-linear hover:-translate-y-1 duration-200 rounded-xl text-center py-4 text-base ">
+                    <Link href="/code" className="bg-black text-white border border-black hover:bg-white hover:text-black w-full md:w-max px-8 transition ease-linear hover:-translate-y-1 duration-200 rounded-xl text-center py-4 text-base ">
                         Get Started
-                    </button>
+                    </Link>
                     <button className="bg-[#f4f4f4] text-black border border-white hover:bg-black hover:text-white w-full md:w-max px-8 transition ease-linear hover:-translate-y-1 duration-200  rounded-xl text-center py-4 text-base my-3">
                         Browse all features
                     </button>
