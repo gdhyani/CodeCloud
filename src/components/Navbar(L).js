@@ -1,7 +1,6 @@
 import { SquareDashedBottomCode } from "lucide-react";
 import Link from "next/link";
-
-
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
     return (
@@ -32,7 +31,7 @@ export default function Navbar() {
                         </div>
                     </div>
                     <div className="flex gap-4 md:gap-8  items-center">
-                        <Link
+                        {/* <Link
                             className="text-[#c6c6c6] hover:underline underline-offset-4"
                             href="/login"
                         >
@@ -43,7 +42,13 @@ export default function Navbar() {
                             href="/code"
                         >
                             Try for free
-                        </Link>
+                        </Link> */}
+                        <SignedOut>
+                            <SignInButton />
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
                     </div>
                 </div>
             </div>
