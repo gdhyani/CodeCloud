@@ -1,15 +1,13 @@
 import Navbar from "@/components/Navbar(L)";
 import "../globals.css";
 import Footer from "@/components/Footer";
-import {
-    ClerkProvider,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export default function RootLayout({ children }) {
     return (
         <ClerkProvider>
             <html lang="en" className="!scroll-smooth">
-                <body className="dark flex flex-col pt-10">
+                <body className="dark flex flex-col min-h-screen">
                     <Navbar />
                     {/* <main className="min-h-screen">  */}
                     {children}
